@@ -1,0 +1,240 @@
+<mvc:View 
+    xmlns:uxap="sap.uxap" 
+    controllerName="objectpage.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:layout="sap.ui.layout"
+    xmlns:m="sap.m"
+>
+		<uxap:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader id="headerForTest"
+							  objectTitle="Object Page Layout Demo"
+							  showTitleSelector="true"
+							  titleSelectorPress="handleTitleSelectorPress"
+							  objectSubtitle="An object page layout is used to display detailed information about a specific object"
+							  >
+				<uxap:actions>
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://action" text="action" importance="Low" tooltip="action"/>
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://action-settings" text="settings" importance="Low" tooltip="action-settings"/>
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" text="edit" importance="Medium" tooltip="edit"/>
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://save" text="save" visible="false" tooltip="save"/>
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://refresh" text="{buttons>/text}" tooltip="refresh"/>
+					<uxap:ObjectPageHeaderActionButton icon="{buttons>/icon}"
+text="{path:'/text', model:'buttons', formatter:'.onFormat'}" tooltip="chain-link"/>
+				</uxap:actions>
+			</uxap:ObjectPageHeader>
+		</uxap:headerTitle>
+		<uxap:headerContent>
+			<layout:VerticalLayout>
+				<m:ObjectStatus title="User ID" text="12345678"/>
+				<m:ObjectStatus title="Functional Area" text="Developement"/>
+				<m:ObjectStatus title="Cost Center" text="PI DFA GD Programs and Product"/>
+				<m:ObjectStatus title="Email" text="swapnil.verma@capgemini.com"/>
+			</layout:VerticalLayout>
+			<m:Text width="200px"
+					text="Hi, I'm Swapnil. I am passionate about what I do and I'll go the extra mile to make the customer win."/>
+
+			
+			<m:ProgressIndicator
+					percentValue="30"
+					displayValue="30%"
+					showValue="true"
+					state="None"/>
+			<layout:VerticalLayout>
+				<m:Label text="Stock Quantity"/>
+				<m:ObjectNumber class="sapMObjectNumberLarge" number="219" unit="K"/>
+			</layout:VerticalLayout>
+			<layout:VerticalLayout>
+				<layout:layoutData>
+					<uxap:ObjectPageHeaderLayoutData visibleS="false"/>
+				</layout:layoutData>
+				
+			</layout:VerticalLayout>
+			<layout:VerticalLayout>
+				<layout:layoutData>
+					<uxap:ObjectPageHeaderLayoutData visibleM="false" />
+				</layout:layoutData>
+				<m:Label text="PC, Not in Medium Size"/>
+				<m:ObjectNumber class="sapMObjectNumberLarge" number="221" unit="K"/>
+			</layout:VerticalLayout>
+            
+			<layout:VerticalLayout>
+				<layout:layoutData>
+					<uxap:ObjectPageHeaderLayoutData visibleL="false"/>
+				</layout:layoutData>
+				
+				<m:ObjectNumber class="sapMObjectNumberLarge" number="219" unit="K"/>
+			</layout:VerticalLayout>
+
+			<m:ObjectAttribute title="Label" text="In Stock"/>
+			
+			<m:RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip"/>
+
+		</uxap:headerContent>
+
+    
+    
+    
+    <uxap:sections>
+
+<uxap:ObjectPageSection title="Customer Details" id="customersection">
+<uxap:subSections>
+<uxap:ObjectPageSubSection title="General Details" id="gdsubsection">
+ <layout:VerticalLayout>
+                            <m:Table id="customersectiontable" items="{/Customers}" growing= "true" growingThreshold="15" growingTriggerText="See More">
+                                <m:columns >
+                                    <m:Column>
+                                        <m:Text text="CustomerID"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="CompanyName"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Phone"/>
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem>
+                                        <m:cells>
+                                            <m:Text text="{CustomerID}"/>
+                                            <m:Text text="{CompanyName}"/>
+                                            <m:Text text="{Phone}"/>
+                                        </m:cells>
+            r                        </m:ColumnListItem>
+                                </m:items>
+                                
+                                </m:Table>
+                                
+                                
+                                </layout:VerticalLayout>
+                                
+</uxap:ObjectPageSubSection>
+</uxap:subSections>
+<uxap:ObjectPageSubSection title="Invoice" id="invoicesubsection">
+    <layout:VerticalLayout>
+                            <m:Table id="invoicesectiontable" items="{/Invoices}" growing= "true" growingThreshold="15" growingTriggerText="See More">
+                                <m:columns>
+                                    <m:Column>
+                                        <m:Text text="UnitPrice"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Salesperson"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="ProductName"/>
+                                    </m:Column>
+                                    <m:Column >
+                                    <m:Text text="Quantity"/>
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem>
+                                        <m:cells>
+                                        <m:Text text="{UnitPrice}"/>
+                                            <m:Text text="{Salesperson}"/>
+                                            <m:Text text="{ProductName}"/>
+                                            <m:Text text="{Quantity}"/>
+                                            
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                                </m:Table>
+                                </layout:VerticalLayout>
+</uxap:ObjectPageSubSection>
+</uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection title="Employee Details" id="employeeSection">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Employees" id="employeesSubSection">
+                        <layout:VerticalLayout>
+                            <m:Table id="employeeTable" items="{/Employees}" growing= "true" growingThreshold="15" growingTriggerText="See More">
+                            
+                                <m:columns>
+                                    <m:Column>
+                                        <m:Text text="Employee ID"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="First Name"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Last Name"/>
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem>
+                                        <m:cells>
+                                            <m:Text text="{EmployeeID}"/>
+                                            <m:Text text="{FirstName}"/>
+                                            <m:Text text="{LastName}"/>
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </layout:VerticalLayout>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection title="Products" id="productsSection">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Product List" id="productListSubSection">
+                        <layout:VerticalLayout>
+                            <m:Table id="productTable" items="{/Products}" growing= "true" growingThreshold="15" growingTriggerText="See More">
+                                <m:columns>
+                                    <m:Column>
+                                        <m:Text text="Product ID"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Product Name"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Category"/>
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem>
+                                        <m:cells>
+                                            <m:Text text="{ProductID}"/>
+                                            <m:Text text="{ProductName}"/>
+                                            <m:Text text="{CategoryID}"/>
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </layout:VerticalLayout>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection title="Customers" id="customersSection">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Customer List" id="customerListSubSection">
+                        <layout:VerticalLayout>
+                            <m:Table id="customerTable" items="{/Customers}" growing= "true" growingThreshold="15" growingTriggerText="See More">
+                                <m:columns>
+                                    <m:Column>
+                                        <m:Text text="Customer ID"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Company Name"/>
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Contact Name"/>
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem>
+                                        <m:cells>
+                                            <m:Text text="{CustomerID}"/>
+                                            <m:Text text="{CompanyName}"/>
+                                            <m:Text text="{ContactName}"/>
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </layout:VerticalLayout>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+
+</uxap:ObjectPageLayout>
+</mvc:View>

@@ -1,0 +1,35 @@
+<mvc:View
+    controllerName="basictable.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Table
+        id="productTable"
+        items="{
+            path: '/Products' }">
+         <columns>
+            <Column>
+                <Label text="Product ID"/>
+            </Column>
+            <Column>
+                <Label text="Product Name"/>
+            </Column>
+            <Column>
+                <Label text="Category"/>
+            </Column>
+            <Column>
+                <Label text="Price"/>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Text text="{ProductID}"/>
+                    <Text text="{ProductName}"/>
+                    <Text text="{CategoryID}"/>
+                    <Text text="{UnitPrice}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+        
+    </Table>
+</mvc:View>

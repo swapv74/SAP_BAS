@@ -1,0 +1,42 @@
+<mvc:View
+  controllerName="smarttabledemoapp.controller.View1"
+  	xmlns="sap.f"
+	xmlns:m="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:sfb="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:sv="sap.ui.comp.smartvariants"
+	height="100%">
+  			<DynamicPage id="dynamicPage" fitContent="true">
+        <header>
+        <DynamicPageHeader>
+				<sfb:SmartFilterBar
+					id="smartFilterBar"
+					entitySet="Products"
+					enableBasicSearch="true"
+					basicSearchFieldName="CompanyCode"
+					persistencyKey="UniqueAndStablePersistencyKey">
+					   	
+				</sfb:SmartFilterBar>
+			</DynamicPageHeader>
+        </header>
+  <content>
+  <smartTable:SmartTable
+    id="smartTable"
+    entitySet="Products"
+	smartFilterId="smartFilterBar"
+    tableType="ResponsiveTable"
+    useTablePersonalisation="true"
+    enableAutoColumnWidth="true"
+    editTogglable="true"
+    header="Products"
+    showRowCount="true"
+    enableAutoBinding="true"
+    initiallyVisibleFields="ProductID,ProductName,SupplierID,CategoryID">
+    
+    
+  </smartTable:SmartTable>
+  </content>
+  </DynamicPage>
+</mvc:View>
